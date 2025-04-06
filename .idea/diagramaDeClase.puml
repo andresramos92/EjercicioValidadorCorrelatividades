@@ -1,0 +1,25 @@
+@startuml
+Materia "*" *-- Inscripcion
+Alumno *-- Inscripcion
+Alumno --> "*" Materia
+
+class Materia{
+-nombre: String
+-correlativas: List<Materia>
++agregarCorrelativa(Materia ... materias): void
+}
+
+class Inscripcion{
+-alumno: Alumno
+-materias: List<Materia>
++aprobada(): Boolean
+}
+
+class Alumno{
+-nombre: String
+-materiasAprobadas: List<Materia>
++estaAprobada(Materia ... materias): Boolean
++agregarMateriaAprobada(Materia): void
+}
+
+@enduml
